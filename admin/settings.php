@@ -89,6 +89,18 @@ if(isset($_POST['submitted'])) {
 	} else {
 		$PRETTYURLS = '';
 	}
+    if(isset($_POST['price_single'])) {
+        $PRICE_SINGLE = $_POST['price_single'];
+    }
+    if(isset($_POST['price_couple'])) {
+        $PRICE_COUPLE = $_POST['price_couple'];
+    }
+    if(isset($_POST['price_coaching'])) {
+        $PRICE_COACHING = $_POST['price_coaching'];
+    }
+    if(isset($_POST['price_skype'])) {
+        $PRICE_SKYPE = $_POST['price_skype'];
+    }
    
 	# user-specific fields
 	if(isset($_POST['user'])) { 
@@ -157,6 +169,10 @@ if(isset($_POST['submitted'])) {
 		$note->addCData($TEMPLATE);
 		$xmls->addChild('PRETTYURLS', $PRETTYURLS);
 		$xmls->addChild('PERMALINK', $PERMALINK);
+        $xmls->addChild('PRICE_SINGLE', $PRICE_SINGLE);
+        $xmls->addChild('PRICE_COUPLE', $PRICE_COUPLE);
+        $xmls->addChild('PRICE_COACHING', $PRICE_COACHING);
+        $xmls->addChild('PRICE_SKYPE', $PRICE_SKYPE);
 		
 		exec_action('settings-website');
 		
@@ -224,6 +240,13 @@ get_template('header', cl($SITENAME).' &raquo; '.i18n_r('GENERAL_SETTINGS'));
 		<div class="leftsec">
 			<p><label for="permalink"  class="clearfix"><?php i18n('PERMALINK');?>: <span class="right"><a href="http://get-simple.info/docs/pretty_urls" target="_blank" ><?php i18n('MORE');?></a></span></label><input class="text" name="permalink" id="permalink" type="text" placeholder="%parent%/%slug%/" value="<?php if(isset($PERMALINK)) { echo $PERMALINK; } ?>" /></p>
 		<a id="flushcache" class="button" href="?flushcache"><?php i18n('FLUSHCACHE'); ?></a>
+
+        <br/>
+        <br/>
+        <p><label for="price_single"  class="clearfix"><?php i18n('PRICE_SINGLE');?>:</label><input class="text" name="price_single" id="price_single" type="text" value="<?php if(isset($PRICE_SINGLE)) { echo $PRICE_SINGLE; } ?>" /></p>
+        <p><label for="price_couple"  class="clearfix"><?php i18n('PRICE_COUPLE');?>:</label><input class="text" name="price_couple" id="price_couple" type="text" value="<?php if(isset($PRICE_COUPLE)) { echo $PRICE_COUPLE; } ?>" /></p>
+        <p><label for="price_coaching"  class="clearfix"><?php i18n('PRICE_COACHING');?>:</label><input class="text" name="price_coaching" id="price_coaching" type="text" value="<?php if(isset($PRICE_COACHING)) { echo $PRICE_COACHING; } ?>" /></p>
+        <p><label for="price_skype"  class="clearfix"><?php i18n('PRICE_SKYPE');?>:</label><input class="text" name="price_skype" id="price_skype" type="text" value="<?php if(isset($PRICE_SKYPE)) { echo $PRICE_SKYPE; } ?>" /></p>
 		</div>
 		<div class="clear"></div>
 		

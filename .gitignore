@@ -2,5 +2,10 @@
 *.project
 *.settings
 *.sublime-*
+*
+!admin
+!gsconfig.php
+!index.php
+!.htaccess
 
 thumbs.db

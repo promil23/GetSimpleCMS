@@ -31,8 +31,8 @@ $GS_asset_objects['jquery'] = 'jQuery';
 $GS_asset_objects['jquery-ui'] = 'jQuery.ui'; 
 
 // jquery
-$jquery_ver    = '1.7.1';
-$jquery_ui_ver = '1.8.17';
+$jquery_ver    = '1.11.0';
+$jquery_ui_ver = '1.10.4';
 
 $GS_script_assets['jquery']['cdn']['url']      = '//ajax.googleapis.com/ajax/libs/jquery/'.$jquery_ver.'/jquery.min.js';
 $GS_script_assets['jquery']['cdn']['ver']      = $jquery_ver;

@@ -137,7 +137,7 @@ jQuery(document).ready(function () {
 		var fadeColor = "#FFFFD1";
 		copyKitTextArea.fadeOut(500).fadeIn(500).html(code);
 	});
-	$(".select-all").live("click", function () {
+	$(".select-all").on("click", function () {
 		copyKitTextArea.focus().select();
 		return false;
 	});
@@ -174,7 +174,7 @@ jQuery(document).ready(function () {
 		e.preventDefault();		
 	});	
 	
-	$(".delconfirmcomp").live("click", function ($e) {
+	$(".delconfirmcomp").on("click", function ($e) {
 		$e.preventDefault();
 		loadingAjaxIndicator.show();
 		var message = $(this).attr("title");
@@ -185,7 +185,7 @@ jQuery(document).ready(function () {
 		}
 		loadingAjaxIndicator.fadeOut(500);
 	});
-	$("#addcomponent").live("click", function ($e) {
+	$("#addcomponent").on("click", function ($e) {
 		$e.preventDefault();
 		loadingAjaxIndicator.show();
 		var id = $("#id").val();
@@ -197,7 +197,7 @@ jQuery(document).ready(function () {
 		$('#submit_line').fadeIn();
 		$("#divTxt").find('input').get(0).focus();		
 	});
-	$('.delcomponent').live("click", function ($e) {
+	$('.delcomponent').on("click", function ($e) {
 		$e.preventDefault();
 		var message = $(this).attr("title");
 		var compid = $(this).attr("rel");
@@ -223,11 +223,11 @@ jQuery(document).ready(function () {
 		$(this).parents('.compdiv').find("input.compslug").val('');
 		$(this).hide();
 	});
-	$("input.titlesaver").live("keyup", function () {
+	$("input.titlesaver").on("keyup", function () {
 		var myval = $(this).val();
 		$(this).parents('.compdiv').find(".compslugcode").html("'" + myval.toLowerCase() + "'");
 		$(this).parents('.compdiv').find("b.editable").html(myval);
-	}).live("focusout", function () {
+	}).on("focusout", function () {
 		var myval = $(this).val();
 		$(this).parents('.compdiv').find(".compslugcode").html("'" + myval.toLowerCase() + "'");
 		$(this).parents('.compdiv').find("b.editable").html(myval);
@@ -238,10 +238,10 @@ jQuery(document).ready(function () {
  
  
 	// other general functions
-	$(".snav a.current").live("click", function ($e) {
+	$(".snav a.current").on("click", function ($e) {
 		$e.preventDefault();
 	});
-	$(".confirmation").live("click", function ($e) {
+	$(".confirmation").on("click", function ($e) {
 		loadingAjaxIndicator.show();
 		var message = $(this).attr("title");
 		var answer = confirm(message);
@@ -251,7 +251,7 @@ jQuery(document).ready(function () {
 		}
 		loadingAjaxIndicator.fadeOut(500);
 	});
-	$(".delconfirm").live("click", function () {
+	$(".delconfirm").on("click", function () {
 		var message = $(this).attr("title");
 		var dlink = $(this).attr("href");
 		var mytr = $(this).parents("tr");
@@ -335,7 +335,7 @@ jQuery(document).ready(function () {
 	}
  
 	//plugins.php
-	$(".toggleEnable").live("click", function ($e) {
+	$(".toggleEnable").on("click", function ($e) {
 		$e.preventDefault();
  
 		var loadingAjaxIndicator = $('#loader');
@@ -399,7 +399,7 @@ jQuery(document).ready(function () {
 	if ($("#edit input#post-title:empty").val() == '') {
 		$("#edit input#post-title").focus();
 	}
-	$("#metadata_toggle").live("click", function ($e) {
+	$("#metadata_toggle").on("click", function ($e) {
 		$e.preventDefault();
 		$("#metadata_window").slideToggle('fast');
 		$(this).toggleClass('current');
@@ -418,7 +418,7 @@ jQuery(document).ready(function () {
 	} else {
 		privateLabel.css("color", '#333333');
 	}
-	$("#post-menu-enable").live("click", function () {
+	$("#post-menu-enable").on("click", function () {
 		$("#menu-items").slideToggle("fast");
 	});
 	if ($("#post-menu-enable").is(":checked")) {} else {
@@ -427,10 +427,10 @@ jQuery(document).ready(function () {
  
 	var edit_line = $('#submit_line span').html();
 	$('#js_submit_line').html(edit_line);
-	$("#js_submit_line input.submit").live("click", function () {
+	$("#js_submit_line input.submit").on("click", function () {
 		$("#submit_line input.submit").trigger('click');
 	});
-	$("#save-close a").live("click", function ($e) {
+	$("#save-close a").on("click", function ($e) {
 		$e.preventDefault();
 		$('input[name=redirectto]').val('pages.php');
 		$("#submit_line input.submit").trigger('click');
@@ -438,7 +438,7 @@ jQuery(document).ready(function () {
  
  
 	// pages.php
-	$("#show-characters").live("click", function () {
+	$("#show-characters").on("click", function () {
 		$(this).hasClass('current') ? $(".showstatus").hide() : $(".showstatus").show() ;
 		$(this).toggleClass('current');
 	});
@@ -452,7 +452,7 @@ jQuery(document).ready(function () {
 		$("li:gt(4)", this).hide(); /* :gt() is zero-indexed */
 		$("li:nth-child(5)", this).after("<li class='more'><a href='#'>More...</a></li>"); /* :nth-child() is one-indexed */
 	});
-	$("li.more a").live("click", function ($e) {
+	$("li.more a").on("click", function ($e) {
 		$e.preventDefault();
 		var li = $(this).parents("li:first");
 		li.parent().children().show();
@@ -491,7 +491,7 @@ jQuery(document).ready(function () {
 
 	//title filtering on pages.php & backups.php
 	var filterSearchInput = $("#filter-search");
-	$('#filtertable').live("click", function ($e) {
+	$('#filtertable').on("click", function ($e) {
 		$e.preventDefault();
 		filterSearchInput.slideToggle();
 		$(this).toggleClass('current');
@@ -513,7 +513,7 @@ jQuery(document).ready(function () {
 			$("#editpages tr:visible .indexColumn:not(:contains('" + this + "'))").parent().hide();
 		});
 	});
-	$("#filter-search .cancel").live("click", function ($e) {
+	$("#filter-search .cancel").on("click", function ($e) {
 		$e.preventDefault();
 		$("#editpages tr").show();
 		$('#filtertable').toggleClass('current');
@@ -523,13 +523,13 @@ jQuery(document).ready(function () {
  
  
 	//create new folder in upload.php
-	$('#createfolder').live("click", function ($e) {
+	$('#createfolder').on("click", function ($e) {
 		$e.preventDefault();
 		$("#new-folder").find("form").show();
 		$(this).hide();
 		$("#new-folder").find('#foldername').focus();
 	});
-	$("#new-folder .cancel").live("click", function ($e) {
+	$("#new-folder .cancel").on("click", function ($e) {
 		$e.preventDefault();
 		$("#new-folder").find("#foldername").val('');
 		$("#new-folder").find("form").hide();

@@ -1,0 +1,29 @@
+AddDefaultCharset UTF-8
+Options -MultiViews -Indexes
+
+# blocks direct access to the XML files - they hold all the data!
+<Files ~ "\.xml$">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</Files>
+<Files sitemap.xml>
+        Order allow,deny
+    Allow from all
+    Satisfy All
+</Files>
+
+
+# Usually it RewriteBase is just '/', but 
+# replace it with your subdirectory path
+RewriteEngine on
+RewriteBase /
+
+RewriteRule /?posty/post/([A-Za-z0-9_-]+)/?$ index.php?id=posty&post=$1 [L]
+RewriteRule /?posty/page/([0-9]+)/?$ index.php?id=posty&page=$1 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule /?([A-Za-z0-9_-]+)/?$ index.php?id=$1 [QSA,L]
+

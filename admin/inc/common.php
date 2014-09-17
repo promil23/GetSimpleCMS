@@ -146,6 +146,10 @@ if (file_exists($thisfilew)) {
 	$TEMPLATE = $dataw->TEMPLATE;
 	$PRETTYURLS = $dataw->PRETTYURLS;
 	$PERMALINK = $dataw->PERMALINK;
+    $PRICE_SINGLE = $dataw->PRICE_SINGLE;
+    $PRICE_COUPLE = $dataw->PRICE_COUPLE;
+    $PRICE_COACHING = $dataw->PRICE_COACHING;
+    $PRICE_SKYPE = $dataw->PRICE_SKYPE;
 } else {
 	$SITENAME = '';
 	$SITEURL = '';
@@ -233,7 +237,7 @@ if(isset($TIMEZONE) && function_exists('date_default_timezone_set') && ($TIMEZON
 /**
  * Variable Globalization
  */
-global $SITENAME, $SITEURL, $TEMPLATE, $TIMEZONE, $LANG, $SALT, $i18n, $USR, $PERMALINK, $GSADMIN, $components, $EDTOOL, $EDOPTIONS, $EDLANG, $EDHEIGHT;
+global $SITENAME, $SITEURL, $TEMPLATE, $TIMEZONE, $LANG, $SALT, $i18n, $USR, $PERMALINK, $GSADMIN, $components, $EDTOOL, $EDOPTIONS, $EDLANG, $EDHEIGHT, $PRICE_SINGLE, $PRICE_COUPLE, $PRICE_COACHING, $PRICE_SKYPE;;
 
 /** grab authorization and security data */
 if (defined('GSUSECUSTOMSALT')) {
