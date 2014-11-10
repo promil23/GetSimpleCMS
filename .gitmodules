@@ -1,0 +1,3 @@
+[submodule "external/bitbucket"]
+	path = external/bitbucket
+	url = https://promil23@bitbucket.org/promil23/madzia.git
